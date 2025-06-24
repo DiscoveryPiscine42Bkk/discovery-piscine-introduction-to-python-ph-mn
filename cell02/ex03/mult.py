@@ -1,15 +1,21 @@
 try:
-    num1 = float(input("Enter the first number: \n"))
-    num2 = float(input("Enter the second number: \n"))
-    mult = num1 * num2
-    print (num1, "x", num2, "=", mult)
-
-    if mult > 0:
-        print("This number is positive.")
-    elif mult < 0:
-        print("This number is negtive.")
+    a = float(input("Enter first number:\n"))
+    if a == 0:
+        print("The result is potive and negative.")
     else:
-        print("This number is both potive and negative.")
+        b = float(input("Enter second number:\n"))
+        if b == 0:
+            print("The result is potive and negative.")
+        else:
+            result = a * b
+            print(f"{a} x {b} = {result}")
+
+            if result > 0:
+                print("The result is positive.")
+            elif result < 0:
+                print("The result is negative.")
+            else:
+                print("The result is potive and negative.")
 
 except ValueError:
     print("Invalid input. Please enter a Real number.")

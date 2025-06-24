@@ -1,6 +1,4 @@
-pwd = "Python is awesome"
-acs = str(input())
-if acs == pwd:
+if input() == "Python is awesome":
     print("ACCESS GRANTED")
 else:
     print("ACCESS DENIED")
