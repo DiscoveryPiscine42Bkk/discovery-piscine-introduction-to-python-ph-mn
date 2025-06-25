@@ -7,5 +7,5 @@ if len(sys.argv) < 2:
 
 else:
     for i in sys.argv[1:]:
-        if not re.search(r'ism$', i):
+        if not re.search(r'ism', i):
             print(i + "ism")
