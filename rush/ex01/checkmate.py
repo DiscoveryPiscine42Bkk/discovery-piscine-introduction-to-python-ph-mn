@@ -7,8 +7,7 @@ def checkmate(board):
     king_row, king_col = find_king_position(board_matrix)
 
     
-    def is_within_board(row, col):
-        return 0 <= row < board_size and 0<= col < board_size
+
     
     straight_dir = [(-1,0), (1,0), (0,1), (0,-1)]
     diagonal_dir = [(-1,-1), (-1,1), (1,1), (1,-1)]
@@ -16,7 +15,7 @@ def checkmate(board):
 
     for row_dir, col_dir in straight_dir:
         row, col = king_row + row_dir, king_col + col_dir
-        while is_within_board(row, col):
+        while is_within_board(row, col, board_size):
             piece = board_matrix[row][col]
             if piece in ['R', 'Q']:
                 print("Success!")
@@ -28,7 +27,7 @@ def checkmate(board):
 
     for row_dir, col_dir in diagonal_dir:
         row, col = king_row + row_dir, king_col + col_dir
-        while is_within_board(row, col):
+        while is_within_board(row, col, board_size):
             piece = board_matrix[row][col]
             if piece in ['B', 'Q']:
                 print("Success!")
@@ -41,12 +40,15 @@ def checkmate(board):
     for row_dir, col_dir in pawn_dir:
         row, col = king_row + row_dir, king_col + col_dir
         
-        if is_within_board(row, col) and board_matrix[row][col] == 'P':
+        if is_within_board(row, col, board_size) and board_matrix[row][col] == 'P':
             print("Success!")
             return True
 
     print("Fail")
     return False
+
+def is_within_board(row, col, board_size):
+    return 0 <= row < board_size and 0<= col < board_size
                 
             
 
