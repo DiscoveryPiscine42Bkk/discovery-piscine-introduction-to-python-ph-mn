@@ -13,49 +13,40 @@ def checkmate(board):
     straight_dir = [(-1,0), (1,0), (0,1), (0,-1)]
     diagonal_dir = [(-1,-1), (-1,1), (1,1), (1,-1)]
     pawn_dir = [(1,-1), (1,1)]
-    found_checkmate = False
 
     for row_dir, col_dir in straight_dir:
-        if found_checkmate:
-            break
         row, col = king_row + row_dir, king_col + col_dir
         while is_within_board(row, col):
             piece = board_matrix[row][col]
             if piece in ['R', 'Q']:
                 print("Success!")
-                found_checkmate = True
-                break
+                return True
             elif piece in ['B','P']:
                 break
             row += row_dir
             col += col_dir
 
     for row_dir, col_dir in diagonal_dir:
-        if found_checkmate:
-            break
         row, col = king_row + row_dir, king_col + col_dir
         while is_within_board(row, col):
             piece = board_matrix[row][col]
             if piece in ['B', 'Q']:
                 print("Success!")
-                found_checkmate = True
-                break
+                return True
             elif piece in ['R','P']:
                 break
             row += row_dir
             col += col_dir
 
     for row_dir, col_dir in pawn_dir:
-        if found_checkmate:
-            break
         row, col = king_row + row_dir, king_col + col_dir
         
         if is_within_board(row, col) and board_matrix[row][col] == 'P':
             print("Success!")
-            break
+            return True
 
-    if not found_checkmate:
-        print("Fail")
+    print("Fail")
+    return False
                 
             
 
