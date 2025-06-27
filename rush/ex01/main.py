@@ -7,11 +7,14 @@ def main():
     if len(sys.argv) < 2:
         print('None')
         exit()
-    for filename in sys.argv[1:]:
-        with open(filename, 'r') as f:
-            board = f.read()
-            checkmate(board)
-            find_legal_moves(board)
+    try:
+        for filename in sys.argv[1:]:
+            with open(filename, 'r') as f:
+                board = f.read()
+                checkmate(board)
+                find_legal_moves(board)
+    except:
+        print("Error")
 
 
 
