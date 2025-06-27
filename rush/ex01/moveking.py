@@ -22,7 +22,7 @@ def find_legal_moves(board):
         print("\n" + new_board)
         if not checkmate(new_board):
             aval_legal_moves += 1
-    print(f'You have {aval_legal_moves} available legal moves.')
+    print("\nYou have", aval_legal_moves, "available legal move." if aval_legal_moves == 1 else "available legal moves.")
 
 def construct_board(board_matrix):
     return '\n'.join("".join(row) for row in board_matrix)
