@@ -14,7 +14,7 @@ def main():
                 checkmate(board)
                 find_legal_moves(board)
     except:
-        print("Error")
+        print("\nError")
 
 
 
